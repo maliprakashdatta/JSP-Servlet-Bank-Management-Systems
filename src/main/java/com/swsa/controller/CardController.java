@@ -62,8 +62,8 @@ public class CardController extends HttpServlet {
 
         Card card = new Card();
         card.setCardId(Integer.parseInt(cardId));
-        card.setCardNo(Integer.parseInt(cardNo));
-        card.setAccountNo(Integer.parseInt(accountNo));
+        card.setCardNo(Long.parseLong(cardNo));
+        card.setAccountNo(Long.parseLong(accountNo));
         card.setAccountHolderName(accountHolderName);
         card.setCvv(Integer.parseInt(cvv));
         card.setCardType(cardType);
