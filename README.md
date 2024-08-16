@@ -1,7 +1,7 @@
 <h2>JSP (Java Server Pages)</h2>
 <h4>Purpose:</h4> JSP is used to create dynamic web pages with HTML, XML, or other document types. It allows embedding Java code directly into the HTML pages.</br>
 <h4>Lifecycle:<h4>
-Translation: The JSP file is translated into a Servlet.</br>
+<h5>Translation:</h5> The JSP file is translated into a Servlet.</br>
 <h5>Compilation:</h5>  The translated Servlet is compiled into a Java class.</br>
 <h5>Loading:</h5>  The class is loaded into the JVM.</br>
 <h5>Instantiation:</h5>  The Servlet is instantiated.</br>
