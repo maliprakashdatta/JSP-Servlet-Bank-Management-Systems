@@ -29,11 +29,12 @@ public class CardController extends HttpServlet {
         out.println("<h1>Card Details</h1>");
         out.println("<table border=1>");
         out.println("<tr>");
-        out.println("<th>id</th>");
-        out.println("<th>first name</th>");
-        out.println("<th>last name</th>");
-        out.println("<th>age</th>");
-        out.println("<th>gender</th>");
+        out.println("<th>CardId</th>");
+        out.println("<th>CardNo</th>");
+        out.println("<th>AccountNo</th>");
+        out.println("<th>AccountHolderName</th>");
+        out.println("<th>Cvv</th>");
+        out.println("<th>CardType</th>");
         out.println("</tr>");
         cardList.parallelStream().forEach(card -> {
             out.println("<tr>");
