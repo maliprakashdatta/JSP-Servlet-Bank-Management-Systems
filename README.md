@@ -3,14 +3,14 @@ JSP (JavaServer Pages) is a technology used to create dynamic web content in Jav
 
 <h2>Here are some key features of JSP:</h2>
 
-<5>Embedded Java Code:</5> JSP allows you to insert Java code into HTML using special tags. This Java code is executed on the server before the page is sent to the client's browser.
+<hh5>Embedded Java Code:</5> JSP allows you to insert Java code into HTML using special tags. This Java code is executed on the server before the page is sent to the client's browser.
 
-<5>Tag Libraries:</5> JSP supports custom tags and tag libraries, which can be used to encapsulate complex operations or reusable components.
+<h5>Tag Libraries:</5> JSP supports custom tags and tag libraries, which can be used to encapsulate complex operations or reusable components.
 
-<5>Expression Language (EL):</5> JSP includes an Expression Language that allows you to easily access data stored in Java objects, such as JavaBeans, without needing to write complex code.
+<h5>Expression Language (EL):</5> JSP includes an Expression Language that allows you to easily access data stored in Java objects, such as JavaBeans, without needing to write complex code.
 
-<5>JavaBeans Integration:</5> JSP can easily interact with JavaBeans components to manage the application's data.
+<h5>JavaBeans Integration:</5> JSP can easily interact with JavaBeans components to manage the application's data.
 
-<5>JSP Directives:</5> These are instructions that provide global information about an entire JSP page, such as importing Java classes, defining custom tag libraries, or specifying the content type.
+<h5>JSP Directives:</5> These are instructions that provide global information about an entire JSP page, such as importing Java classes, defining custom tag libraries, or specifying the content type.
 
-<5>Lifecycle:</5> JSPs are compiled into servlets (Java classes that handle HTTP requests) by the server. The lifecycle of a JSP includes translation to a servlet, compilation, initialization, execution, and cleanup.
+<h5>Lifecycle:</5> JSPs are compiled into servlets (Java classes that handle HTTP requests) by the server. The lifecycle of a JSP includes translation to a servlet, compilation, initialization, execution, and cleanup.
