@@ -1,9 +1,9 @@
 package com.swsa.model;
 
 import lombok.*;
-
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Card {
