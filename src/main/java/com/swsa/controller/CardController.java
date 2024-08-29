@@ -1,56 +1,39 @@
 package com.swsa.controller;
 import com.swsa.model.Card;
 import com.swsa.service.CardService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-public class CardController extends HttpServlet {
-    private String message;
 
+@WebServlet("/card")
+public class CardController extends HttpServlet {
     private CardService cardService = new CardService();
 
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("--------------- inside the doGet() method ---------------");
-        List<Card> cardList = new ArrayList<>();
+    @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // list of Addresses for demonstration purposes
+        List<Card> cards;
         try {
-            cardList = cardService.retrieveCards();
+            System.out.println("Inside / card");
+            cards = cardService.retrieveCards();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>Card Details</h1>");
-        out.println("<table border=1>");
-        out.println("<tr>");
-        out.println("<th>CardId</th>");
-        out.println("<th>CardNo</th>");
-        out.println("<th>AccountNo</th>");
-        out.println("<th>AccountHolderName</th>");
-        out.println("<th>Cvv</th>");
-        out.println("<th>CardType</th>");
-        out.println("</tr>");
-        cardList.parallelStream().forEach(card -> {
-            out.println("<tr>");
-            out.println("<td>" + card.getCardId()+"</td>");
-            out.println("<td>" + card.getCardNo() +"</td>");
-            out.println("<td>" + card.getAccountNo() +"</td>");
-            out.println("<td>" + card.getAccountHolderName() +"</td>");
-            out.println("<td>" + card.getCvv() +"</td>");
-            out.println("<td>" + card.getCardType() +"</td>");
-            out.println("</tr>");
-        });
-        out.println("</table>");
-        out.println("</body></html>");
-    }
+        // Set the list of Addresses as a request attribute
+        request.setAttribute("cardList", cards);
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Forward the request to the JSP page
+        request.getRequestDispatcher("/card.jsp").forward(request, response);
+
+    }
+@Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("--------------- inside the doGet() method ---------------");
         String cardId= request.getParameter("cardId");
         String cardNo = request.getParameter("cardNo");
@@ -74,6 +57,7 @@ public class CardController extends HttpServlet {
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<html><body>");
+
             if (isInserted) {
                 out.println("<h1> Card object inserted to db</h1>");
             } else {
@@ -83,19 +67,11 @@ public class CardController extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    request.getRequestDispatcher("confirmation.jsp").forward(request, response);
+
     }
 
-    public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("--------------- inside the service() method ---------------");
-        if (request.getMethod().equals("POST")) {
-            this.doPost(request, response);
-        } else {
-            this.doGet(request, response);
-        }
-    }
-
-    public void destroy() {
-        System.out.println("--------------- inside the destroy() method ---------------");
-    }
 }
+
 
