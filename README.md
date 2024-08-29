@@ -3,7 +3,7 @@ JSP (JavaServer Pages) is a technology used to create dynamic web content in Jav
 
 <h2>Here are some key features of JSP:</h2>
 
-<hh5>Embedded Java Code:<h/5> JSP allows you to insert Java code into HTML using special tags. This Java code is executed on the server before the page is sent to the client's browser.
+<h5>Embedded Java Code:<h/5> JSP allows you to insert Java code into HTML using special tags. This Java code is executed on the server before the page is sent to the client's browser.
 
 <h5>Tag Libraries:<h/5> JSP supports custom tags and tag libraries, which can be used to encapsulate complex operations or reusable components.
 
