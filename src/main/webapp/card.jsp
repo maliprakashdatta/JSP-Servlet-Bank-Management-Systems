@@ -39,7 +39,7 @@
                     <option value="1">Debit</option>
                     <option value="2">Credit</option>
 
-                </select    >
+                </select>
             </div>
 
             <input type="submit"  value="Submit">
