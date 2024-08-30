@@ -11,7 +11,8 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet({"/card", "/cardRetrieveServlet"})
+@WebServlet("/cardRetrieveServlet")
+//@WebServlet(/card")
 public class CardController extends HttpServlet {
     private CardService cardService = new CardService();
 
