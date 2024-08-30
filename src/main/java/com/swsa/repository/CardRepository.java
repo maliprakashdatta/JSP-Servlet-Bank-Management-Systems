@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.swsa.model.Card;
 import com.swsa.service.ConnectionService;
-public class CardRepository
-{
+public class CardRepository {
     private static Connection connection = null;
 
     private void initConnection() throws SQLException {
@@ -21,16 +20,15 @@ public class CardRepository
         this.initConnection();
 
         String query = "INSERT INTO card VALUES (?,?,?,?,?,?)";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query))
-        {
-            preparedStatement.setInt(1,card.getCardId());
-            preparedStatement.setLong(2 ,card.getCardNo());
-            preparedStatement.setLong(3,card.getAccountNo());
-            preparedStatement.setString(4,card.getAccountHolderName());
-            preparedStatement.setInt(5,card.getCvv());
-            preparedStatement.setString(6,card.getCardType());
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, card.getCardId());
+            preparedStatement.setLong(2, card.getCardNo());
+            preparedStatement.setLong(3, card.getAccountNo());
+            preparedStatement.setString(4, card.getAccountHolderName());
+            preparedStatement.setInt(5, card.getCvv());
+            preparedStatement.setString(6, card.getCardType());
 
-            System.out.println("inserting card object to CARD table: " +card);
+            System.out.println("inserting card object to CARD table: " + card);
 
             int rowsInserted = preparedStatement.executeUpdate();
 
@@ -52,17 +50,16 @@ public class CardRepository
             ResultSet ResultSet1 = statement.executeQuery("SELECT * FROM card");
 
             // Iterate over the result set
-            while (ResultSet1.next())
-            {
-                int cardId= ResultSet1.getInt("cardId");
-                long cardNo=ResultSet1.getLong("cardNo");
-                long accountNo=ResultSet1.getLong("accountNo");
-                String accountHolderName=ResultSet1.getString("accountHolderName");
-                int cvv=ResultSet1.getInt("cvv");
-                String cardType=ResultSet1.getString("cardType");
+            while (ResultSet1.next()) {
+                int cardId = ResultSet1.getInt("cardId");
+                long cardNo = ResultSet1.getLong("cardNo");
+                long accountNo = ResultSet1.getLong("accountNo");
+                String accountHolderName = ResultSet1.getString("accountHolderName");
+                int cvv = ResultSet1.getInt("cvv");
+                String cardType = ResultSet1.getString("cardType");
 
                 // Do something with the data, e.g., print it
-                Card card=new Card(cardId,cardNo, accountNo,accountHolderName,cvv,cardType);
+                Card card = new Card(cardId, cardNo, accountNo, accountHolderName, cvv, cardType);
                 cards.add(card);
             }
         } catch (SQLException e) {
@@ -80,7 +77,7 @@ public class CardRepository
         return cards;
     }
 
-
+}
 
     /*
 //===============Update Card========================
@@ -127,4 +124,4 @@ public class CardRepository
         }
         return false;
 }*/
-}
+
