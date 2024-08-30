@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/card")
+@WebServlet({"/card", "/cardRetrieveServlet"})
 public class CardController extends HttpServlet {
     private CardService cardService = new CardService();
 
@@ -29,7 +29,7 @@ public class CardController extends HttpServlet {
         request.setAttribute("cardList", cards);
 
         // Forward the request to the JSP page
-        request.getRequestDispatcher("/card.jsp").forward(request, response);
+        request.getRequestDispatcher("/displaycard.jsp").forward(request, response);
 
     }
 @Override
