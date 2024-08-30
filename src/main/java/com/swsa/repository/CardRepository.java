@@ -79,50 +79,8 @@ public class CardRepository
         }
         return cards;
     }
-//    //======================
 
 
-//
-//    //====================retrieveCards================
-//    public List<Card> retrieverCards()
-//    {
-//        List<Card> cards = new ArrayList<>();
-//        // Use the connection to execute SQL queries and interact awith the database
-//        try {
-//            this.initConnection();
-//
-//            // Your database operations here...
-//            Statement statement = connection.createStatement();
-//            ResultSet ResultSet1 = statement.executeQuery("SELECT * FROM card");
-//
-//            // Iterate over the result set
-//            while (ResultSet1.next())
-//            {
-//                int cardId= ResultSet1.getInt("cardId");
-//                long cardNo=ResultSet1.getLong("cardNo");
-//                long accountNo=ResultSet1.getLong("accountNo");
-//                String accountHolderName=ResultSet1.getString("accountHolderName");
-//                int cvv=ResultSet1.getInt("cvv");
-//                String cardType=ResultSet1.getString("cardType");
-//
-//                // Do something with the data, e.g., print it
-//                Card card=new Card(cardId,cardNo, accountNo,accountHolderName,cvv,cardType);
-//                cards.add(card);
-//            }
-//        } catch (SQLException e) {
-//            System.err.println("SQL error: " + e.getMessage());
-//        } finally {
-//            // Close the connection when done
-//            if (connection != null) {
-//                try {
-//                    connection.close();
-//                } catch (SQLException e) {
-//                    System.err.println("Error closing connection: " + e.getMessage());
-//                }
-//            }
-//        }
-//        return cards;
-//    }
 
     /*
 //===============Update Card========================
