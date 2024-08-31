@@ -12,8 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import static java.lang.System.out;
 
-//@WebServlet("/account")
-@WebServlet("/accountRetrieveServlet")
+@WebServlet({"/account", "/accountRetrieveServlet"})
 public  class AccountController extends HttpServlet {
     private AccountService accountService = new AccountService();
 @Override
