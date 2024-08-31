@@ -20,6 +20,7 @@
         <th>cardType</th>
     </tr>
     </thead>
+
     <tbody>
     <c:forEach var="card" items="${cardList}">
         <tr>
@@ -32,9 +33,10 @@
         </tr>
     </c:forEach>
     </tbody>
+
 </table>
 
-<a href="http://localhost:8080/studentManagementSystem">Go to Home</a>
+<a href="http://localhost:8080/BankManagementSystems">Go to Home</a>
 
 </body>
 </html>
