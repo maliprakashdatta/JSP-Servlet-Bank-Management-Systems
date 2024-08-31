@@ -3,7 +3,8 @@ import com.swsa.model.Account;
 import com.swsa.repository.AccountRepository;
 import java.sql.SQLException;
 import java.util.List;
-public class AccountService {
+public class AccountService
+{
 
     private static final AccountRepository ACCOUNT_REPOSITORY = new AccountRepository();
 
