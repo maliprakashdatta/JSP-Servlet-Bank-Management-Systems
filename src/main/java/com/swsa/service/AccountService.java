@@ -24,31 +24,7 @@ public class AccountService
         return ACCOUNT_REPOSITORY.retrieveAccount();
     }
 }
-    //==================Deposit================================
-//
-//    public boolean deposit(Account account)throws SQLException {
-//        if (ACCOUNT_REPOSITORY.deposit(account)) {
-//            System.out.println("deposit inserted successfully!");
-//        } else {
-//            System.out.println("Failed to insert deposit.");
-//            return false;
-//        }
-//        return true;
-//
-//    }
-//
-////===================Withdraw Amount =================================
-//
-//    public boolean withdraw(Account account)throws SQLException {
-//        if (ACCOUNT_REPOSITORY.withdraw(account)) {
-//            System.out.println("withdraw Money inserted successfully!");
-//        } else {
-//            System.out.println("Failed to  withdraw Money.");
-//            return false;
-//        }
-//        return true;
-//
-//    }
+
 
 ////
 //
