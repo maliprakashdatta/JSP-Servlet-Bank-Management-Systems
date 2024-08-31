@@ -4,6 +4,7 @@ import com.swsa.service.ConnectionService;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class AccountRepository {
     private Connection connection = null;
 
@@ -72,7 +73,45 @@ public class AccountRepository {
         }
         return false;
     }
-}
+
+//============================================================================
+    //---------------DEPOSIT ACOUNT-----------------------------
+//=============================================================================
+
+
+
+    // Method to update user data into the database
+    public boolean deposit(Account account) throws SQLException {
+        this.initConnection();
+        int amount = 0;
+        String query = "INSERT INTO account VALUES (?,?,?,?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, account.getAccountNumber());
+            preparedStatement.setString(2, account.getAccountHolderName());
+            preparedStatement.setDouble(3, account.getBalance());
+            preparedStatement.setInt(4, account.getCustomerId());
+
+            System.out.println("Deposit Money successfully .... : " + account);
+
+            int rowsInserted = preparedStatement.executeUpdate();
+            if (amount > 0) {
+                account.setBalance(account.getBalance() + amount);
+                System.out.println("Deposited $" + amount + " into account " + account.getAccountNumber());
+            } else {
+                System.out.println("Deposit amount must be positive.");
+            }
+            return rowsInserted > 0;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+
 //
 //    // Method to update user data into the database
 //    public boolean updateAccount(Account account) throws SQLException {
@@ -105,42 +144,6 @@ public class AccountRepository {
 //        return null;
 //    }
 
-//============================================================================
-    //---------------DEPOSIT ACOUNT-----------------------------
-//=============================================================================
-//
-//
-//
-//    // Method to update user data into the database
-//    public boolean deposit(Account account) throws SQLException {
-//        this.initConnection();
-//        int amount = 0;
-//        String query = "INSERT INTO account VALUES (?,?,?,?)";
-//        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-//
-//            preparedStatement.setString(1, account.getAccountNumber());
-//            preparedStatement.setString(2, account.getAccountHolderName());
-//            preparedStatement.setDouble(3, account.getBalance());
-//            preparedStatement.setInt(4, account.getCustomerId());
-//
-//            System.out.println("Deposit Money successfully .... : " + account);
-//
-//            int rowsInserted = preparedStatement.executeUpdate();
-//            if (amount > 0) {
-//                account.setBalance(account.getBalance() + amount);
-//                System.out.println("Deposited $" + amount + " into account " + account.getAccountNumber());
-//            } else {
-//                System.out.println("Deposit amount must be positive.");
-//            }
-//            return rowsInserted > 0;
-//
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return false;
-//    }
-//
 //
 //    // Method to update user data into the database
 //        public boolean updatedeposit(Account account) throws SQLException {
@@ -331,7 +334,7 @@ public class AccountRepository {
 //    }
 //
 //
-//}
+}
 
 
 
