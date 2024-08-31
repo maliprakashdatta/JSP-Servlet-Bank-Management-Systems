@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                <label for="balance">Balance:(Fixed Amount:500Rs)</label>
+                <label for="balance">Deposit Money</label>
                 <input type="text" class="balance" id="balance" name="balance" placeholder="Enter initial(Opening)deposit amount" required>
             </div>
             <div class="form-group">
