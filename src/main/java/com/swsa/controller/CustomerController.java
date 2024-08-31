@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/customer")
+@WebServlet({"/customer", "/customerRetrieveServlet"})
 public class CustomerController extends HttpServlet {
 
     private CustomerService customerService = new CustomerService();
@@ -21,18 +21,13 @@ public class CustomerController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // list of Addresses for demonstration purposes
         List<Customer> customers;
-        try {
-            System.out.println("Inside / customers");
-            customers = customerService.retrieveCustomer();
-       }
-        catch (Exception e) {
-           throw new RuntimeException(e);
-        }
-            // Set the list of Addresses as a request attribute
+        System.out.println("Inside / customers");
+        customers = customerService.retrieveCustomer();
+        // Set the list of Addresses as a request attribute
             request.setAttribute("customerList", customers);
 
             // Forward the request to the JSP page
-            request.getRequestDispatcher("/customer.jsp").forward(request, response);
+            request.getRequestDispatcher("/displaycustomer.jsp").forward(request, response);
 
         }
     @Override
