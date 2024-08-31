@@ -40,10 +40,13 @@
 <body>
 <div class="container">
     <div class="form-container">
-        <h2>Card form Submission Confirmation</h2>
-        <p>Your card submission has been successfully received!</p>
+        <h2> form Submission Confirmation</h2>
+        <p>Your submission has been successfully received!</p>
         <div>
-            <a href="http://localhost:8080/BankManagementSystems/CardController" class="btn btn-primary">Show Card</a>
+            <a href="http://localhost:8080/BankManagementSystems/card" class="btn btn-primary">Show Card</a>
+        </div>
+        <div>
+        <a href="http://localhost:8080/BankManagementSystems/customer" class="btn btn-primary">Show Customer</a>
         </div>
         <div>
             <a href="index.html" class="btn btn-primary">Return to Home</a>
