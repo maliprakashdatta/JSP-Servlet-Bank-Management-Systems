@@ -17,8 +17,7 @@ public class CustomerRepository {
 
     public List<Customer> retrieveCustomer()
 
-    {
-      //Customer customer = null;
+    {             //Customer customer = null;
         List<Customer> customers = new ArrayList<>();
         // Use the connection to execute SQL queries and interact with the database
         try {
