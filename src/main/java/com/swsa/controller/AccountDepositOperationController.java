@@ -16,13 +16,6 @@ import static java.lang.System.out;
 {
         private AccountDepositOperationService accountOperationService = new AccountDepositOperationService();
         @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            {
-
-            }
-
-        }
-        @Override
         //===================Account insert========================================
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             out.println("--------------- inside the doGet() method ---------------");
