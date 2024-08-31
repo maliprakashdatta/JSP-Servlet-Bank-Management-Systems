@@ -14,7 +14,7 @@
 <a href="http://localhost:8080/BankManagementSystems/customer.html">Customer form</a></br>
 <a href="http://localhost:8080/BankManagementSystems/customerRetrieveServlet">Display Customer Info</a></br>
 <hr>
-<a href="http://localhost:8080/BankManagementSystems/account.html">Account form</a></br>
+<a href="http://localhost:8080/BankManagementSystems/account.jsp">Account form</a></br>
 <a href="http://localhost:8080/BankManagementSystems/displaycustomer.html">Display Account Info</a></br>
 <hr>
 <a href="http://localhost:8080/BankManagementSystems/depositMoney.html">Deposit Money</a></br>
