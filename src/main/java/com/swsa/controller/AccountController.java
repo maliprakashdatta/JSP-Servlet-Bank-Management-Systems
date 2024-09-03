@@ -71,49 +71,6 @@ public  class AccountController extends HttpServlet {
 
 
 
-//
-//        try {
-//
-//        if (accountService.insertAccount(account)) {
-//            response.getWriter().println("<p>Account created successfully.</p>");
-//        } else {
-//            response.getWriter().println("<p>Account creation failed. Account may already exist.</p>");
-//        }
-//
-//        if (accountService.deposit(account))
-//        {
-//            response.getWriter().println("<p>deposit money successfully.</p>");
-//        } else {
-//            response.getWriter().println("<p>deposit money failed.</p>");
-//        }
-//
-//        if (accountService.withdraw(account)) {
-//            response.getWriter().println("<p>withdraw  money successfully.</p>");
-//        } else {
-//            response.getWriter().println("<p>withdraw money failed.</p>");
-//        }
-//
-//    } catch (SQLException e) {
-//        throw new RuntimeException(e);
-//    }
-//
-//
-//        out.println("</body></html>");
-//}
-//
-//public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//            out.println("--------------- inside the service() method ---------------");
-//            if (request.getMethod().equals("POST")) {
-//                this.doPost(request, response);
-//            } else {
-//                this.doGet(request, response);
-//            }
-//        }
-//    }
-
-
-
-
 
 
 
