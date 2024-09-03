@@ -34,7 +34,7 @@ public class AccountRepository {
                 int customerId = resultSet.getInt("customerId");
 
                 // Do something with the data, e.g., print it
-                Account account = new Account(accountNumber, accountHolderName, balance, customerId);
+                Account account = new Account(accountNumber,accountHolderName,balance,customerId);
                 accounts.add(account);
             }
         } catch (SQLException e) {
@@ -101,7 +101,6 @@ public class AccountRepository {
 //=============================================================================
 
 
-
     // Method to update user data into the database
     public boolean deposit(Account account) throws SQLException {
         this.initConnection();
@@ -136,8 +135,7 @@ public class AccountRepository {
     public boolean updatedeposit(Account account) throws SQLException {
         this.initConnection();
         String query = "UPDATE account  SET   AccountNumber= ?,AccountHolderName(),Balance = Amount +  ?, CustomerId=?";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query))
-        {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, account.getAccountNumber());
             preparedStatement.setString(2, account.getAccountHolderName());
             preparedStatement.setDouble(3, account.getBalance());
@@ -162,7 +160,7 @@ public class AccountRepository {
 
     // Method to update user data into the database
 
-        public boolean withdraw(Account account) throws SQLException {
+    public boolean withdraw(Account account) throws SQLException {
         this.initConnection();
         int amount = 0;
         String query = "INSERT INTO account VALUES (?, ?, ?, ?)";
@@ -183,18 +181,15 @@ public class AccountRepository {
                 System.out.println("Insufficient funds for withdrawal.");
             } else {
                 System.out.println("Withdrawal amount must be positive.");
-           }
-                int rowsInserted = preparedStatement.executeUpdate();
-
-                return rowsInserted > 0;
             }
+            int rowsInserted = preparedStatement.executeUpdate();
 
-            catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
-            return false;
+            return rowsInserted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return false;
+    }
 
 
     // Method to update user data into the database
@@ -202,8 +197,7 @@ public class AccountRepository {
     public boolean updatewithdraw(Account account) throws SQLException {
         this.initConnection();
         String query = "UPDATE account  SET   AccountNumber= ?, AccountHolderName(),Balance = Amount -  ?, CustomerId=?";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query))
-        {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, account.getAccountNumber());
             preparedStatement.setString(2, account.getAccountHolderName());
             preparedStatement.setDouble(3, account.getBalance());
@@ -221,76 +215,30 @@ public class AccountRepository {
     }
 
 
-}
-
-/*
 //=====================================================
 //----------------CHECK BALANCE-------------
 //===========================================================
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/bankmanagementsystems";
+    private static final String USER = "root";
+    private static final String PASS = "Prakash@123";
+    public double findBalanceByAccountNumber(String accountNumber) {
+        double balance = 0.0;
+        String query = "SELECT balance FROM account WHERE accountNumber = ?";
 
-    {
-        List<Account> accounts = new ArrayList<>();
-        // Use the connection to execute SQL queries and interact with the database
-        try {
-            this.initConnection();
-            // Your database operations here...
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("\"SELECT balance FROM account WHERE accountNumber = ? AND CustomerId=?\"");
-            // Iterate over the result set
-            while (resultSet.next()) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
 
-                String accountNumber = resultSet.getString("AccountNumber");
-                int customerId = resultSet.getInt("customerId");
-
-                // Do something with the data, e.g., print it
-                Account account = new Account(accountNumber,customerId);
-                accounts.add(account);
-            }
-        } catch (SQLException e) {
-            System.err.println("SQL error: " + e.getMessage());
-        } finally {
-            // Close the connection when done
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    System.err.println("Error closing connection: " + e.getMessage());
+            stmt.setString(1, accountNumber);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    balance = rs.getDouble("balance");
                 }
-            }
-        }
-
-    }
-
-
-    // Method to update user data into the database
-    public boolean getBalance(Account account) throws SQLException {
-        this.initConnection();
-        String query = "INSERT INTO account VALUES (?, ?)";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query )) {
-
-            preparedStatement.setString(1, account.getAccountNumber());
-            preparedStatement.setInt(2,account.getCustomerId());
-            System.out.println("Balance Check successfully .. : " + account);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                double balance = resultSet.getDouble("balance");
-                System.out.println("Balance is : " + balance);
-            } else {
-                System.out.println("CustomerId!");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
-    }*/
 
+        return balance;
+    }
 
-
-
-
-
-
-
-
-
+}
