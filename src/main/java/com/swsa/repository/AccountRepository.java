@@ -218,20 +218,19 @@ public class AccountRepository {
 //=====================================================
 //----------------CHECK BALANCE-------------
 //===========================================================
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/bankmanagementsystems";
-    private static final String USER = "root";
-    private static final String PASS = "Prakash@123";
-    public double findBalanceByAccountNumber(String accountNumber) {
+    String url = "jdbc:mysql://localhost:3306/bankmanagementsystems";
+    String username = "root";
+    String password = "Prakash@123";
+    public double checkBalance(String accountNumber) {
         double balance = 0.0;
         String query = "SELECT balance FROM account WHERE accountNumber = ?";
-
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        try (Connection conn = DriverManager.getConnection(url,username,password);
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, accountNumber);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    balance = rs.getDouble("balance");
+                    balance = (int) rs.getDouble("balance");
                 }
             }
         } catch (SQLException e) {
