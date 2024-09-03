@@ -23,9 +23,13 @@ public class AccountService
     public List<Account> retrieveAccount() throws SQLException {
         return ACCOUNT_REPOSITORY.retrieveAccount();
     }
+
+    public double checkBalance(String accountNumber) {
+        return 0;
+    }
 }
 
-
+//
 ////
 //
 ////================get Balance ==============================
